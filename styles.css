@@ -9,6 +9,14 @@ body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+:root {
+    --clr-white: #fff;
+    --clr-red-dark: hsl(360, 67%, 44%);
+    --clr-red-light: hsl(360, 71%, 66%);
+    --transition: all 0.3s linear;
+    --fixed-width: 620px;
+  }
+
 header {
     display: flex;
     justify-content: center;
@@ -54,12 +62,12 @@ div.banner {
     color: crimson;
 }
 
-.open-model {
-    visibility: visible;
-    z-index: 10;
+.open-modal {
+    visibility: visible !important;
+    z-index: 10 !important;
 }
 
-div.model-overlay {
+.modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -71,13 +79,33 @@ div.model-overlay {
     transition: var(--transition);
     visibility: hidden;
     z-index: -10;
-}
+  }
 
-div.model-container {
-    background: #fff;
-    box-shadow: 0px 10px 30px rgb(0 0 0 / 4%);
-    padding: 10px 30px;
-    width: 350px;
-    height: 220px;
+  .modal-container {
+    background: var(--clr-white);
     border-radius: 5px;
-}
+    width: 90vw;
+    height: 30vh;
+    max-width: var(--fixed-width);
+    text-align: center;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: transparent;
+    border-color: transparent;
+    color: var(--clr-red-dark);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+
+  .close-btn:hover {
+    color: var(--clr-red-light);
+    transform: scale(1.3);
+  }
